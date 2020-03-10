@@ -1,0 +1,8 @@
+[ERROR 2020-03-10 17:59:44]    无效的('xpath', '//*[@resource-id="com.miui.home:id/cell_layout"]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ImageView[1]') - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
+[ERROR 2020-03-10 17:59:44]    xpath is not allowed. - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
+[ERROR 2020-03-10 18:01:53]    无效的('xpath', '//[@resource-id="com.miui.home:id/cell_layout"]/android.widget.RelativeLayout[1]') - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
+[ERROR 2020-03-10 18:01:53]    xpath is not allowed. - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
+[ERROR 2020-03-10 18:10:04]    无效的(0.14, 0.109) - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
+[ERROR 2020-03-10 18:10:04]    'tuple' object has no attribute 'click' - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
+[ERROR 2020-03-10 18:13:09]    无效的(0.14, 0.109) - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
+[ERROR 2020-03-10 18:13:09]    'NoneType' object has no attribute 'click' - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
