@@ -6,3 +6,6 @@
 [ERROR 2020-03-10 18:10:04]    'tuple' object has no attribute 'click' - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
 [ERROR 2020-03-10 18:13:09]    无效的(0.14, 0.109) - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
 [ERROR 2020-03-10 18:13:09]    'NoneType' object has no attribute 'click' - /home/mi/PycharmProjects/AppDemo/Comment/Log.py[line:41]
+[ERROR 2020-03-10 19:18:32]    [Errno 2] No such file or directory: '/home/mi/AppAutoTemplate/Comment/PIc/test.png' - /home/mi/AppAutoTemplate/Comment/Log.py[line:41]
+[ERROR 2020-03-10 19:19:02]    [Errno 2] No such file or directory: '/home/mi/AppAutoTemplate/Comment/Pic/test.png' - /home/mi/AppAutoTemplate/Comment/Log.py[line:41]
+[ERROR 2020-03-10 19:54:48]    'Session or Device' object has no attribute 'tocast' - /home/mi/AppAutoTemplate/Comment/Log.py[line:41]

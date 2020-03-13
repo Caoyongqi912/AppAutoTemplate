@@ -260,4 +260,4 @@ class DeviceInfo:
 
 
 if __name__ == '__main__':
-    des = DeviceInfo().get_ps_log("OneTrack")
+    print(DeviceInfo().get_current_package_name('a19908ae'))

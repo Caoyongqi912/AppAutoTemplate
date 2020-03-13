@@ -3,6 +3,10 @@ import os
 import uiautomator2 as U2
 from Comment.Log import LogInfo
 
+path = lambda p: os.path.abspath(
+    os.path.join(os.path.dirname(__file__), p)
+)
+
 
 class UI:
     """
@@ -53,6 +57,13 @@ class UI:
         """
         try:
             return self.d.app_current()
+        except Exception as e:
+            self.log.error(str(e))
+
+    def Get_AppInfo(self, pkg_name):
+        """Get_AppInfo"""
+        try:
+            return self.d.app_info(pkg_name)
         except Exception as e:
             self.log.error(str(e))
 
@@ -118,15 +129,15 @@ class UI:
             self.log.error("关闭失败")
             self.log.error(str(e))
 
-    def Press(self, key):
+    def Press(self, *args):
         """
-        按键操作
-        :param key:str(home)  tuple(x,y)
-        :return:
+            key (str): on of
+            ("home", "back", "left", "right", "up", "down", "center",
+            "search", "enter", "delete", "del", "recent", "volume_up",
+            "menu", "volume_down", "volume_mute", "camera", "power")
         """
         try:
-            self.d.press(key)
-            self.log.info(f"点击 {key}")
+            self.d.press(*args)
         except Exception as e:
             self.log.error(str(e))
 
@@ -138,10 +149,15 @@ class UI:
         except Exception as e:
             self.log.error(str(e))
 
-    def ScreenShot(self):
-        return self.d.screenshot()
+    def ScreenShot(self, name):
+        """err pass"""
+        try:
+            self.d.screenshot(f"{path('PIC')}/{name}")
 
-    def Find_Element(self, element):
+        except Exception as e:
+            self.log.error(str(e))
+
+    def _Find_Element(self, element):
         """
         根据具体需求查找元素,
         """
@@ -173,7 +189,7 @@ class UI:
     def Click(self, element: tuple):
         """点击"""
         try:
-            ele = self.Find_Element(element)
+            ele = self._Find_Element(element)
             if isinstance(ele, tuple):
                 self.d.click(ele[0], ele[1])
             else:
@@ -187,7 +203,7 @@ class UI:
     def Double_Click(self, element, time=1):
         """双击 时间间隔默认1s 需传坐标"""
         try:
-            ele = self.Find_Element(element)
+            ele = self._Find_Element(element)
             if isinstance(ele, tuple):
                 self.d.double_click(ele[0], ele[1], time)
             else:
@@ -201,7 +217,7 @@ class UI:
     def Lone_Click(self, element, time=3):
         """长点击 点击时间默认3s  需传坐标"""
         try:
-            ele = self.Find_Element(element)
+            ele = self._Find_Element(element)
             if isinstance(ele, tuple):
                 self.d.long_click(ele[0], ele[1], time)
             else:
@@ -215,7 +231,7 @@ class UI:
     def Send_keys(self, element, text):
         """输入文本"""
         try:
-            ele = self.Find_Element(element)
+            ele = self._Find_Element(element)
             print(ele)
             ele.clear_text()
             ele.set_text(text)
@@ -225,8 +241,32 @@ class UI:
             self.log.error(f'无效的{element}')
             self.log.error(str(e))
 
+    def Push(self, files, url):
+        try:
+            self.d.push(files, url)
+        except Exception as e:
+            self.log.error(str(e))
 
-    
+    def Pull(self, files, url):
+        try:
+            return self.d.pull(files, url)
+        except Exception as e:
+            self.log.error(str(e))
+
+    def Toast(self, msg):
+        """
+        获取toast,
+        msg 默认返回
+        """
+        try:
+            return self.d.toast.get_message(5, 10, msg)
+        except Exception as e:
+            self.log.error(str(e))
+
+    def Watcher(self, name: str, element: tuple):
+        """
+        """
+        self.d.watcher(name).when(element)
 
 
 if __name__ == '__main__':
@@ -237,4 +277,9 @@ if __name__ == '__main__':
     # u.Press("left")
     # u.Click(("resourceId", "com.miui.home:id/icon_icon"))
     # u.Click(("xpath", '//*[@resource-id="com.miui.home:id/cell_layout"]/android.widget.RelativeLayout[1]'))
-    u.Send_keys(("resourceId", 'com.xiaomi.onetrackdemo:id/property_et_key'), 'hah')
+    # u.Send_keys(("resourceId", 'com.xiaomi.onetrackdemo:id/property_et_key'), 'hah')
+    # u.d.toast.show("hello", 10)
+    # print(u.Get_AppInfo('com.jingdong.app.mall'))
+    # print(u.Toast('hello'))
+    a = u.Get_Current_App()
+    print(a)
